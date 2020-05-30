@@ -24,8 +24,9 @@
 #include <QMenuBar>
 #include <QToolBar>
 
-void LightStyle::polish(QPalette& palette)
+QPalette LightStyle::standardPalette() const
 {
+    auto palette = BaseStyle::standardPalette();
     palette.setColor(QPalette::Active, QPalette::Window, QStringLiteral("#F7F7F7"));
     palette.setColor(QPalette::Inactive, QPalette::Window, QStringLiteral("#FCFCFC"));
     palette.setColor(QPalette::Disabled, QPalette::Window, QStringLiteral("#EDEDED"));
@@ -85,6 +86,8 @@ void LightStyle::polish(QPalette& palette)
     palette.setColor(QPalette::Disabled, QPalette::Link, QStringLiteral("#4F6935"));
     palette.setColor(QPalette::All, QPalette::LinkVisited, QStringLiteral("#507826"));
     palette.setColor(QPalette::Disabled, QPalette::LinkVisited, QStringLiteral("#506935"));
+
+    return palette;
 }
 
 QString LightStyle::getAppStyleSheet() const
